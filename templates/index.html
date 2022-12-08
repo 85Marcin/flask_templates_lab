@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <form action="/events" method="post">
+      <label for="Event_name">Event name</label>
+      <input type="text" name="event_name" id="Event_name" /><br />
+      <label for="Event_date">Event date</label>
+      <input type="date" name="event_date" id="Event_date" /><br />
+      <label for="num_guests">Number of guests</label>
+      <input type="number" name="number_of_guests" id="num_guests" /><br />
+      <label for="room_location">Location</label>
+      <input type="text" name="location" id="room_location" /><br />
+      <label for="description">Description</label>
+      <input type="text" name="event_description" id="description" /><br />
+      <label for="recurring">Recurring: </label>
+      <input type="checkbox" name="recurring_event" id="recurring" /><br />
+      <input type="submit" value="Add Event" />
+    </form>
+
+    {% for event in events %}
+    <div>
+      <ul>
+        <li>Name: {{event.name}}</li>
+        <li>Date: {{event.date}}</li>
+        <li>Number of guests: {{event.num_guests}}</li>
+        <li>Location: {{event.room_location}}</li>
+        <li>Description: {{event.description}}</li>
+        <li>
+          Recurring: {% if event.recurring%}
+          <span>&#9989;</span>
+          {%else%}
+          <span>&#10060;</span>
+          {%endif%}
+        </li>
+      </ul>
+    </div>
+    {% endfor%}
+  </body>
+</html>
