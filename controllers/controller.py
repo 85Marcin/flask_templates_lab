@@ -14,11 +14,7 @@ def create():
     number_of_guests = request.form['number_of_guests']
     location = request.form['location']
     event_description = request.form['event_description']
-    
-    if request.form['recurring_event']:
-        recurring_event = True
-    else: 
-        recurring_event = False
+    recurring_event = request.form['recurring_event']
 
     new_event = Event(name, event_date, number_of_guests, location, event_description, recurring_event)
     events.append(new_event)

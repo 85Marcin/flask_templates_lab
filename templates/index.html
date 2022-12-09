@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
     <title>{{ title }}</title>
   </head>
   <body>
@@ -19,7 +23,9 @@
       <label for="description">Description</label>
       <input type="text" name="event_description" id="description" /><br />
       <label for="recurring">Recurring: </label>
-      <input type="checkbox" name="recurring_event" id="recurring" /><br />
+      <input type="checkbox" name="recurring_event" id="recurring" />
+      <input type="hidden" name="recurring_event" checked="False" />
+      <br />
       <input type="submit" value="Add Event" />
     </form>
 
